@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p id="task1"></p>
+<p id="task2y"></p>
+<p id="task2w"></p>
+<p id="task2d"></p>
+<p id="task2m"></p>
+<p id="task2t"></p>
+<p id="task3"></p>
+
+<form onsubmit="return validate()" method = 'post' action="">
+<label for="n1">1st number </label>
+<input type="text" id="n1" name="ts4" ><br><br>
+
+<label for="n2">2nd number </label>
+<input type="text" id="n2" name="ts4" ><br><br>
+
+<input type="button" value="Multiply" onclick="mlt()">
+<input type="button" value="Divide" onclick="dvd()">
+</form>
+
+<p>The result is:</p>
+<p id="task4"></p>
+
+<script>
+//task 1
+document.getElementById("task1").innerHTML = "Marzhan CS-2112";
+
+//task 2
+var today = new Date();
+document.getElementById("task2y").innerHTML = "Year: " + today.getFullYear();
+
+const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+let day = weekday[today.getDay()];
+document.getElementById("task2w").innerHTML = "Today is: " + day;
+
+document.getElementById("task2d").innerHTML = "Date: " + today.getDate();
+
+document.getElementById("task2m").innerHTML = "Month: " + (today.getMonth()+1);
+
+document.getElementById("task2t").innerHTML = "Current time is: " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();;
+
+//task 3
+const daylong = 24 * 60 * 60 * 1000;
+const date1 = new Date(today.getFullYear(), (today.getMonth()+1), today.getDate());
+const date2 = new Date(2024, 6, 30);
+
+document.getElementById("task3").innerHTML = Math.round(Math.abs((date1 - date2) / daylong)) + " days left until the freedom!";
+
+//task 4
+function mlt(){
+var num1=document.getElementById("n1").value; 
+var num2=document.getElementById("n2").value; 
+document.getElementById("task4").innerHTML = num1*num2;}
+
+function dvd(){
+var num1=document.getElementById("n1").value; 
+var num2=document.getElementById("n2").value; 
+if (num2==0){
+document.getElementById("task4").innerHTML = "Cannot be divided by 0";}
+else{
+document.getElementById("task4").innerHTML = num1/num2;}}
+</script>
+
+</body>
+</html> 
